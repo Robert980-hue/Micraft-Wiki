@@ -1,0 +1,313 @@
+/* Базовые сбросы */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color: #2b2b2b;
+  --card-bg: #3a3a3a;
+  --text-color: #e0e0e0;
+  --accent: #55a73a;
+  --border: #4a4a4a;
+  --shadow-hover: rgba(85, 167, 58, 0.3);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* Плавная прокрутка для якорных ссылок */
+html {
+  scroll-behavior: smooth;
+}
+
+.wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* ========== ШАПКА ========== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 165px;
+  background-color: rgba(225, 237, 230, 0.8);
+  backdrop-filter: blur(8px);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-icon {
+  width: 35px;
+  height: 35px;
+  /* Заглушка, если нет картинки */
+  background-color: var(--accent);
+  border-radius: 4px;
+}
+
+.logo-text {
+  font-size: 20px;
+  font-weight: 700;
+  color: rgb(0, 224, 56);
+}
+
+.nav {
+  display: flex;
+  gap: 60px;
+}
+
+.nav a {
+  font-size: 20px;
+  font-weight: 500;
+  text-decoration: none;
+  color: rgba(44, 45, 53, 1);
+  position: relative;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+/* Анимация ссылок при наведении */
+.nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.nav a:hover {
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+.cart-icon {
+  width: 24px;
+  height: 24px;
+  background-color: #ccc;
+  border-radius: 4px;
+}
+
+/* ========== ГЛАВНЫЙ БАННЕР ========== */
+.hero {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  padding: 60px 165px;
+}
+
+.hero-image {
+  flex: 1;
+  height: 500px;
+  background-color: #333;
+  border-radius: 12px;
+  background-image: url('images/Verstak.png');
+  background-repeat: no-repeat;
+  /* Сюда можно поставить свою картинку */
+}
+
+.hero-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hero-title {
+  font-size: 56px;
+  font-weight: 500;
+  line-height: 1.1;
+  color: #fff;
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.hero-description {
+  font-size: 18px;
+  font-weight: 400;
+  color: #aaa;
+}
+
+/* Кнопка (если будет использоваться) */
+.hero-btn {
+  width: fit-content;
+  background: transparent;
+  border: 1px solid var(--accent);
+  padding: 16px 32px;
+  font-size: 18px;
+  color: var(--accent);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 6px;
+}
+
+.hero-btn:hover {
+  background: var(--accent);
+  color: #000;
+}
+
+/* ========== ЗЕЛЬЯ ========== */
+.potions-wrapper {
+  padding: 40px 15px;
+}
+
+.potions-wrapper h1 {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 30px;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 10px;
+}
+
+.potion-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.potion-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Анимация карточки при наведении */
+.potion-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px var(--shadow-hover);
+  border-color: var(--accent);
+}
+
+.potion-image {
+  width: 160px;
+  height: 160px;
+  background-color: #444;
+  margin: 0 auto 15px auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 6px;
+  border: 1px solid #555;
+}
+
+.potion-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.potion-effect {
+  margin-bottom: 12px;
+  color: #ddd;
+  line-height: 1.4;
+}
+
+.recipe-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+  text-align: left;
+}
+
+.recipe-list li {
+  padding: 4px 0;
+  border-bottom: 1px solid var(--border);
+  color: #ccc;
+}
+
+.note {
+  font-size: 0.9rem;
+  color: #888;
+
+margin-top: 15px;
+  font-style: italic;
+}
+
+/* ========== АДАПТИВНОСТЬ ========== */
+@media (max-width: 1024px) {
+  .header {
+    padding: 20px 30px;
+  }
+
+  .hero {
+    padding: 40px 30px;
+    flex-direction: column;
+  }
+
+  .hero-image, .hero-content {
+    flex: none;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .potion-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* 2 колонки на планшете */
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 20px 20px;
+  }
+
+  .logo {
+    margin-bottom: 10px;
+  }
+
+  .nav {
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .wrapper {
+    padding: 0 15px;
+  }
+
+  .hero {
+    padding: 30px 15px;
+  }
+
+  .hero-image, .hero-content {
+    width: 100%;
+    max-width: none;
+  }
+
+  .potion-grid {
+    grid-template-columns: 1fr; /* 1 колонка на телефоне */
+  }
+}
+
+
+
